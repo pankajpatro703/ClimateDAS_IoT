@@ -1,5 +1,6 @@
-//Code for ESP8266 module
-
+/*
+  ESP8266 Arduino code to transmit serially received data on Thingspeak channel
+*/
 #include <ESP8266WiFi.h>
 
 String apiKey = "";                    //Thingspeak channel Write key(16)    
@@ -41,11 +42,11 @@ void loop()
       buffer1 = Serial.readString();
       if (buffer1[0] == '*')
       {
-        if (buffer1[5] == '#')
+        if (buffer1[6] == '#')
         {
           Serial.println(buffer1);
-          data1 = ((buffer1[1] - 0x30) * 10 + (buffer1[2] - 0x30));
-          data2 = ((buffer1[3] - 0x30) * 10 + (buffer1[4] - 0x30));
+          data1 =((buffer1[1]-0x30)*100+(buffer1[2]-0x30)*10+(buffer1[3]-0x30));	//Obtaining light intensity
+          data2 =((buffer1[4]-0x30)*10+(buffer1[5]-0x30));							//Obtaining temperature
         }
       }
     }
@@ -66,7 +67,7 @@ void loop()
     client.print("Content-Length: ");
     client.print(postStr.length());
     client.print("\n\n");
-    client.print(postStr);
+    client.print(postStr);					//Pushing the data to Thingspeak channel
     Serial.println(postStr);
   }
   client.stop();
