@@ -46,7 +46,7 @@ void loop()
         {
           Serial.println(buffer1);
           data1 =((buffer1[1]-0x30)*100+(buffer1[2]-0x30)*10+(buffer1[3]-0x30));	//Obtaining light intensity
-          data2 =((buffer1[4]-0x30)*10+(buffer1[5]-0x30));							//Obtaining temperature
+          data2 =((buffer1[4]-0x30)*10+(buffer1[5]-0x30));          //Obtaining temperature
         }
       }
     }
