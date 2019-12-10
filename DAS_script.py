@@ -76,8 +76,8 @@ def write_to_bolt(data):
 	"""Sends the data to BoltIoT module to transmit it over serial"""
 	try:
 		resp=mybolt.serialBegin(9600)
-		data=json.loads(resp)
-		if(data['success']==0):
+		data2=json.loads(resp)
+		if(data2['success']==0):
 			print('Could not communicate with Bolt')
 		else:
 			mybolt.serialWrite(str(data['field1'])+" "+str(data['field2'])+" "+str(data['field3'])+" "+str(data['command'])+" \n")
