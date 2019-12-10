@@ -40,7 +40,7 @@ void loop() {
       sprintf(message,"L:%dlux T:%dC",data[0],data[1]);   //light intensity, temperature
       lcd.print(message);                                 //print message
       lcd.setCursor(0,1);                                 //for second line in LCD
-      if(data[3]==0)									  //during summers
+      if(data[3]==0)					  //during summers
 	      sprintf(message,"Maximum temp:%dC",data[2]);
       else if(data[3]==1)                                 //during monsoon
         sprintf(message,"Rain chances:%d%c",data[2],37);  //37 is ASCII for %
