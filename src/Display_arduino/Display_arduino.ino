@@ -19,7 +19,7 @@ void setup() {
   Serial.begin(9600);   //Baud rate 9600bps
 }
 
-int digit=0,i=0,val;
+int digit=0,i=0,val,sign=1;
 int data[MAX_DATA];     //retrieved data
 char message[16];       //LCD message
 
@@ -28,7 +28,7 @@ void loop() {
     char inChar = Serial.read();
     if (isDigit(inChar)) {
       val = int(inChar)-48;   //convert ascii value to number
-      digit=digit*10+val;
+      digit=digit*10+val*sign;
     }
     else if(inChar==' ' || (inChar=='\n' && i==MAX_DATA-1)) {
       data[i]=digit;       //store data
@@ -50,5 +50,6 @@ void loop() {
       i=0;
       digit=0;
     }
+    sign=(inChar=='-')?(-sign):(sign);                    //if '-' sign is found
   }
 }

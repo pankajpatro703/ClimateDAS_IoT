@@ -20,7 +20,10 @@ void loop() {
     light1=String(0)+light1;      //Obtain fixed size (3 digit) value
     m++;
   }
-  temp1=String(temp);
+  if(temp<0)
+    temp1=String('-')+String(abs(temp));
+  else
+    temp1=String(temp);
   m=temp1.length();
   while(m<2){
     temp1=String(0)+temp1;        //Obtain fixed size (2 digit) value
