@@ -5,14 +5,14 @@
 
 String light1,temp1;
 int m=0,light,temp;
-float m=0.555,b=-19.82;	  //obtained by plotting
+float slope=0.555,intercept=-19.82;	  //obtained by plotting lux vs ADC values
 
 void setup() {
   Serial.begin(9600);     //baudrate for communication with ESP8266
 }
 
 void loop() {
-  light=analogRead(A0)*a+b;   //Calibration to read light intensity in Lux
+  light=analogRead(A0)*slope+intercept;   //Calibration to read light intensity in Lux
   temp=analogRead(A1)*500/(pow(2,ADC_size)-1);  //Read temperature in degree celsius
   light1=String(light);
   m=light1.length();
