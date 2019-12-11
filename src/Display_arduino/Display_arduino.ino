@@ -50,6 +50,7 @@ void loop() {
       i=0;
       digit=0;
     }
-    sign=(inChar=='-')?(-sign):(sign);                    //if '-' sign is found
+    else if(inChar=='-')
+      sign=-1;                                            //if '-' sign is found
   }
 }
