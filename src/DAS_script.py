@@ -15,10 +15,10 @@
     along with ClimateDAS_IoT.  If not, see <https://www.gnu.org/licenses/>.
 '''
 
-################################
-#   @Author: pankajpatro703    #
-# Licensed under Lesser GPL v3 #
-################################
+###########################
+# @Author: pankajpatro703 #
+#  Licensed under GPL v3  #
+###########################
 
 from boltiot import Bolt
 from datetime import datetime,timedelta
