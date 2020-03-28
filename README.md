@@ -1,5 +1,6 @@
 # ClimateDAS_IoT
 Repository for Data Acquisition System to obtain climatic and sensor data using BoltIoT platform, ESP8266 and Arduino UNO
+![Block Diagram](DAS_bd.png)
 
 # src/Display_arduino/Display_arduino.ino:
 Code for Arduino at the receiver/display circuit
